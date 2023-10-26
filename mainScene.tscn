@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtvt210uyn4i4"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_t7k0c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aufot"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssp8a"]
+font_size = 48
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t7k0c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Coins Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Coins: "
+label_settings = SubResource("LabelSettings_aufot")
+
+[node name="Buy Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Buy Lootboxes"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Lootbox Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Lootboxes: "
+label_settings = SubResource("LabelSettings_ssp8a")
+
+[node name="Open Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Open Lootbox"
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="coinAccumulator" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/Buy Button" to="." method="_on_buy_button_button_up"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/Open Button" to="." method="_on_open_button_button_up"]
+[connection signal="timeout" from="coinAccumulator" to="." method="_on_coin_accumulator_timeout"]

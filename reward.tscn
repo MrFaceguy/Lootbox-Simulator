@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq84kc68sje6o"]
+
+[ext_resource type="Script" path="res://Reward_Template.gd" id="2_areav"]
+[ext_resource type="Script" path="res://itemCompendium.gd" id="3_1dkiy"]
+
+[node name="Reward" type="TextureRect" node_paths=PackedStringArray("compendium")]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_areav")
+compendium = NodePath("Control")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_1dkiy")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Reward" load_steps=3 format=3 uid="uid://boj5qy474umfg"]
+
+[ext_resource type="Script" path="res://itemCompendium.gd" id="1_jspys"]
+[ext_resource type="Script" path="res://Reward_Template.gd" id="2_x0j2f"]
+
+[resource]
+script = ExtResource("2_x0j2f")
+compendium = ExtResource("1_jspys")
